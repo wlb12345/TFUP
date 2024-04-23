@@ -1,0 +1,19 @@
+cache_shots:16, training_shots:109
+Building transform_train
++ random resized crop (size=(224, 224), scale=(0.08, 1.0))
++ random flip
++ to torch tensor of range [0, 1]
++ normalization (mean=[0.48145466, 0.4578275, 0.40821073], std=[0.26862954, 0.26130258, 0.27577711])
+correct num: tensor(4276, device='cuda:0') acc: tensor(0.7746, device='cuda:0')
+correct num: tensor(20291, device='cuda:0') acc: tensor(0.5396, device='cuda:0')
+correct1 num: tensor(28857, device='cuda:0') acc: tensor(0.7674, device='cuda:0')
+Building transform_train
++ random resized crop (size=(224, 224), scale=(0.08, 1.0))
++ random flip
++ to torch tensor of range [0, 1]
++ normalization (mean=[0.48145466, 0.4578275, 0.40821073], std=[0.26862954, 0.26130258, 0.27577711])
+
+**** Zero-shot CLIP's test accuracy: 66.91. ****
+
+
+**** Our training free accuracy: 69.19. ****
