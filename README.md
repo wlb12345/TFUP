@@ -65,6 +65,8 @@ Follow [DATASET.md](DATASETS.md) to install Office-Home, Office31, VisDA17 and D
 
 Before running, you should make changes to the config files in `configs`: `DATASET.ROOT`.
 
+#### Training Free
+
 Below we provide an example on how to run on Office-Home/art.
 
 ```bash
@@ -72,6 +74,21 @@ python main.py --config configs/office_home.yaml --domain_name art
 ```
 
 If you want to run on other datasets, replace `office_home` with `office31`, `visda17` or `domainnet` and make changes to the `domain_name`. 
+
+#### Training
+
+```bash
+python main.py --config configs/office_home.yaml --domain_name art --training
+```
+
+After training, the adapters and cache model can be found in `cache_dir/OfficeHome/art`.
+
+#### Inference
+
+```bash
+python main.py --config configs/office_home.yaml --domain_name art --eval-only
+```
+
 
 # Acknowledgement
 We would like to thank the authors of [POUF]( https://github.com/korawat-tanwisuth/POUF), [APE]( https://github.com/yangyangyang127/APE), [Tip-Adapter](https://github.com/gaopengcuhk/Tip-Adapter) and [CoOp](https://github.com/KaiyangZhou/CoOp), based on which this codebase was built.
