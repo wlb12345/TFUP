@@ -1,0 +1,38 @@
+SEED: 1
+
+DATASET:
+  NAME: 'VisDA17'
+  ROOT: 'D:/datasets/visda17'
+
+DATALOADER:
+  TRAIN_X:
+    BATCH_SIZE: 256
+  TEST:
+    BATCH_SIZE: 256
+  NUM_WORKERS: 0
+
+INPUT:
+  SIZE: (224, 224)
+  INTERPOLATION: "bicubic"
+  PIXEL_MEAN: [0.48145466, 0.4578275, 0.40821073]
+  PIXEL_STD: [0.26862954, 0.26130258, 0.27577711]
+  TRANSFORMS: ["random_resized_crop", "random_flip", "normalize"]
+
+OPTIM:
+  LR: 0.012
+  MAX_EPOCH: 30
+  WARMUP_EPOCH: 5
+
+MODEL:
+  BACKBONE:
+    NAME: "ViT-B/16"
+
+TRAINER:
+  TFUP:
+    beta: 1
+    alpha: 0.3
+    ratio_beta: 0.5
+    ratio_alpha: 0.2
+    cache_proportion: 0.3
+    training_proportion: 0.5
+    PATH_TO_PROMPTS: './gpt3_prompts/prompts/gpt-3.5-turbo-instruct_visda17.json'
