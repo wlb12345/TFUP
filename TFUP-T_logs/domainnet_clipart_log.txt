@@ -1,0 +1,231 @@
+cache_shots:16, training_shots:72
+Building transform_train
++ random resized crop (size=(224, 224), scale=(0.08, 1.0))
++ random flip
++ to torch tensor of range [0, 1]
++ normalization (mean=[0.48145466, 0.4578275, 0.40821073], std=[0.26862954, 0.26130258, 0.27577711])
+correct num: tensor(4631, device='cuda:0') acc: tensor(0.8389, device='cuda:0')
+correct num: tensor(15697, device='cuda:0') acc: tensor(0.6319, device='cuda:0')
+correct1 num: tensor(20278, device='cuda:0') acc: tensor(0.8163, device='cuda:0')
+Building transform_train
++ random resized crop (size=(224, 224), scale=(0.08, 1.0))
++ random flip
++ to torch tensor of range [0, 1]
++ normalization (mean=[0.48145466, 0.4578275, 0.40821073], std=[0.26862954, 0.26130258, 0.27577711])
+
+**** Zero-shot CLIP's test accuracy: 73.36. ****
+
+
+**** Our training free accuracy: 73.87. ****
+
+Train Epoch: 0 / 30
+LR: 0.011967, Acc: 0.7467 (18541.0/24832), Loss: 1.0802
+loss: 1.0526, ce_loss: 0.0000, im_loss: 0.0000
+**** TFUP-T's test accuracy: 75.00. ****
+
+**** TFUP-T's test accuracy1: 74.44. ****
+
+Train Epoch: 1 / 30
+LR: 0.011869, Acc: 0.7757 (19263.0/24832), Loss: 0.9463
+loss: 0.8473, ce_loss: 0.0000, im_loss: 0.0000
+**** TFUP-T's test accuracy: 75.31. ****
+
+**** TFUP-T's test accuracy1: 74.84. ****
+
+Train Epoch: 2 / 30
+LR: 0.011706, Acc: 0.7874 (19552.0/24832), Loss: 0.8831
+loss: 1.0345, ce_loss: 0.0000, im_loss: 0.0000
+**** TFUP-T's test accuracy: 75.34. ****
+
+**** TFUP-T's test accuracy1: 74.82. ****
+
+Train Epoch: 3 / 30
+LR: 0.011481, Acc: 0.7955 (19754.0/24832), Loss: 0.8478
+loss: 0.9136, ce_loss: 0.0000, im_loss: 0.0000
+**** TFUP-T's test accuracy: 75.52. ****
+
+**** TFUP-T's test accuracy1: 74.97. ****
+
+Train Epoch: 4 / 30
+LR: 0.011196, Acc: 0.8045 (19977.0/24832), Loss: 0.8089
+loss: 0.8738, ce_loss: 0.0000, im_loss: 0.0000
+**** TFUP-T's test accuracy: 75.61. ****
+
+**** TFUP-T's test accuracy1: 75.01. ****
+
+Train Epoch: 5 / 30
+LR: 0.010725, Acc: 0.8902 (21050/23647), Loss: -0.8731
+loss: -0.9102, ce_loss: 0.7060, im_loss: -5.3867
+**** TFUP-T's test accuracy: 75.73. ****
+
+**** TFUP-T's test accuracy1: 74.95. ****
+
+Train Epoch: 6 / 30
+LR: 0.010162, Acc: 0.8885 (21323/23999), Loss: -0.8771
+loss: -0.8080, ce_loss: 0.7975, im_loss: -5.3516
+**** TFUP-T's test accuracy: 75.89. ****
+
+**** TFUP-T's test accuracy1: 75.21. ****
+
+Train Epoch: 7 / 30
+LR: 0.009516, Acc: 0.8854 (21315/24073), Loss: -0.9051
+loss: -0.9986, ce_loss: 0.6058, im_loss: -5.3477
+**** TFUP-T's test accuracy: 75.51. ****
+
+**** TFUP-T's test accuracy1: 74.84. ****
+
+Train Epoch: 8 / 30
+LR: 0.008802, Acc: 0.8872 (21466/24194), Loss: -0.9077
+loss: -1.0468, ce_loss: 0.5724, im_loss: -5.3984
+**** TFUP-T's test accuracy: 75.74. ****
+
+**** TFUP-T's test accuracy1: 75.21. ****
+
+Train Epoch: 9 / 30
+LR: 0.008032, Acc: 0.8866 (21483/24231), Loss: -0.9381
+loss: -0.8169, ce_loss: 0.7866, im_loss: -5.3438
+**** TFUP-T's test accuracy: 75.88. ****
+
+**** TFUP-T's test accuracy1: 75.12. ****
+
+Train Epoch: 10 / 30
+LR: 0.007222, Acc: 0.8865 (21555/24314), Loss: -0.9273
+loss: -0.7666, ce_loss: 0.8467, im_loss: -5.3789
+**** TFUP-T's test accuracy: 75.76. ****
+
+**** TFUP-T's test accuracy1: 75.10. ****
+
+Train Epoch: 11 / 30
+LR: 0.006388, Acc: 0.8857 (21605/24392), Loss: -0.9478
+loss: -1.0561, ce_loss: 0.5455, im_loss: -5.3398
+**** TFUP-T's test accuracy: 75.59. ****
+
+**** TFUP-T's test accuracy1: 75.21. ****
+
+Train Epoch: 12 / 30
+LR: 0.005547, Acc: 0.8843 (21576/24398), Loss: -0.9360
+loss: -0.8139, ce_loss: 0.7964, im_loss: -5.3672
+**** TFUP-T's test accuracy: 75.97. ****
+
+**** TFUP-T's test accuracy1: 75.55. ****
+
+Train Epoch: 13 / 30
+LR: 0.004715, Acc: 0.8858 (21605/24391), Loss: -0.9499
+loss: -0.9164, ce_loss: 0.7008, im_loss: -5.3906
+**** TFUP-T's test accuracy: 75.88. ****
+
+**** TFUP-T's test accuracy1: 75.24. ****
+
+Train Epoch: 14 / 30
+LR: 0.003907, Acc: 0.8857 (21582/24367), Loss: -0.9489
+loss: -1.1976, ce_loss: 0.4010, im_loss: -5.3281
+**** TFUP-T's test accuracy: 75.79. ****
+
+**** TFUP-T's test accuracy1: 75.21. ****
+
+Train Epoch: 15 / 30
+LR: 0.003141, Acc: 0.8841 (21586/24415), Loss: -0.9786
+loss: -0.9389, ce_loss: 0.6656, im_loss: -5.3477
+**** TFUP-T's test accuracy: 75.75. ****
+
+**** TFUP-T's test accuracy1: 75.05. ****
+
+Train Epoch: 16 / 30
+LR: 0.002431, Acc: 0.8831 (21618/24480), Loss: -0.9475
+loss: -1.1120, ce_loss: 0.5042, im_loss: -5.3867
+**** TFUP-T's test accuracy: 75.77. ****
+
+**** TFUP-T's test accuracy1: 75.34. ****
+
+Train Epoch: 17 / 30
+LR: 0.001792, Acc: 0.8843 (21669/24505), Loss: -0.9765
+loss: -1.0683, ce_loss: 0.5245, im_loss: -5.3086
+**** TFUP-T's test accuracy: 75.88. ****
+
+**** TFUP-T's test accuracy1: 75.16. ****
+
+Train Epoch: 18 / 30
+LR: 0.001235, Acc: 0.8834 (21705/24569), Loss: -0.9760
+loss: -1.0319, ce_loss: 0.5756, im_loss: -5.3594
+**** TFUP-T's test accuracy: 75.75. ****
+
+**** TFUP-T's test accuracy1: 75.20. ****
+
+Train Epoch: 19 / 30
+LR: 0.000772, Acc: 0.8826 (21692/24577), Loss: -0.9872
+loss: -1.0269, ce_loss: 0.5835, im_loss: -5.3672
+**** TFUP-T's test accuracy: 75.70. ****
+
+**** TFUP-T's test accuracy1: 75.25. ****
+
+Train Epoch: 20 / 30
+LR: 0.000411, Acc: 0.8818 (21712/24621), Loss: -0.9999
+loss: -1.0863, ce_loss: 0.4977, im_loss: -5.2812
+**** TFUP-T's test accuracy: 75.73. ****
+
+**** TFUP-T's test accuracy1: 75.14. ****
+
+Train Epoch: 21 / 30
+LR: 0.000161, Acc: 0.8816 (21736/24655), Loss: -0.9973
+loss: -0.8000, ce_loss: 0.8132, im_loss: -5.3789
+**** TFUP-T's test accuracy: 75.79. ****
+
+**** TFUP-T's test accuracy1: 75.23. ****
+
+Train Epoch: 22 / 30
+LR: 0.000025, Acc: 0.8818 (21745/24660), Loss: -0.9759
+loss: -0.9715, ce_loss: 0.6359, im_loss: -5.3594
+**** TFUP-T's test accuracy: 75.77. ****
+
+**** TFUP-T's test accuracy1: 75.25. ****
+
+Train Epoch: 23 / 30
+LR: 0.000007, Acc: 0.8818 (21734/24647), Loss: -0.9828
+loss: -1.0248, ce_loss: 0.5816, im_loss: -5.3555
+**** TFUP-T's test accuracy: 75.77. ****
+
+**** TFUP-T's test accuracy1: 75.23. ****
+
+Train Epoch: 24 / 30
+LR: 0.000107, Acc: 0.8818 (21737/24652), Loss: -0.9811
+loss: -0.9543, ce_loss: 0.6531, im_loss: -5.3594
+**** TFUP-T's test accuracy: 75.76. ****
+
+**** TFUP-T's test accuracy1: 75.22. ****
+
+Train Epoch: 25 / 30
+LR: 0.000322, Acc: 0.8817 (21733/24650), Loss: -0.9850
+loss: -1.2009, ce_loss: 0.4163, im_loss: -5.3906
+**** TFUP-T's test accuracy: 75.74. ****
+
+**** TFUP-T's test accuracy1: 75.25. ****
+
+Train Epoch: 26 / 30
+LR: 0.000650, Acc: 0.8818 (21731/24645), Loss: -0.9825
+loss: -0.9556, ce_loss: 0.6479, im_loss: -5.3438
+**** TFUP-T's test accuracy: 75.68. ****
+
+**** TFUP-T's test accuracy1: 75.18. ****
+
+Train Epoch: 27 / 30
+LR: 0.001082, Acc: 0.8821 (21739/24644), Loss: -0.9946
+loss: -1.1395, ce_loss: 0.4660, im_loss: -5.3516
+**** TFUP-T's test accuracy: 75.73. ****
+
+**** TFUP-T's test accuracy1: 75.04. ****
+
+Train Epoch: 28 / 30
+LR: 0.001611, Acc: 0.8816 (21722/24640), Loss: -0.9873
+loss: -0.7620, ce_loss: 0.8552, im_loss: -5.3906
+**** TFUP-T's test accuracy: 75.89. ****
+
+**** TFUP-T's test accuracy1: 75.17. ****
+
+Train Epoch: 29 / 30
+LR: 0.002227, Acc: 0.8818 (21731/24644), Loss: -0.9917
+loss: -1.0784, ce_loss: 0.5320, im_loss: -5.3672
+**** TFUP-T's test accuracy: 75.84. ****
+
+**** TFUP-T's test accuracy1: 75.30. ****
+
+**** After fine-tuning, TFUP-T's best test accuracy: 75.97, at epoch: 12. ****
