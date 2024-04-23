@@ -1,4 +1,7 @@
 import argparse
+
+import torch
+
 from clip.clip import _MODELS, _download
 from clip.model import build_model
 from read_data import *
@@ -53,8 +56,28 @@ def get_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', dest='config', help='settings of TFUP in yaml format')
     parser.add_argument("--domain_name", dest='domain_name', type=str, default="", help="domain name")
+    parser.add_argument("--eval-only", action="store_true", help="evaluation only")
+    parser.add_argument("--training", action="store_true", help="training")
     args = parser.parse_args()
     return args
+
+
+def inference_TFUP_T(cfg, cache_keys, cache_values, test_features, test_labels, clip_weights, cache_dir):
+    ratio_alpha, beta = cfg.TRAINER.TFUP.ratio_alpha, cfg.TRAINER.TFUP.beta
+    clip_weights = clip_weights.permute(1, 0)
+
+    text_adapter = torch.load(cache_dir + "/text_adapter.pt")
+    image_adapter = torch.load(cache_dir + "/image_adapter.pt")
+    text_adapter.eval()
+    image_adapter.eval()
+    with torch.no_grad():
+        new_cache_keys, new_clip_weights, new_cache_values = text_adapter(cache_keys, clip_weights, cache_values)
+        x = image_adapter(test_features)
+        test_feature1 = ratio_alpha * x + (1 - ratio_alpha) * test_features
+        test_feature1 = test_feature1 / test_feature1.norm(dim=-1, keepdim=True)
+        logits = 100. * test_feature1 @ new_clip_weights
+    acc = cls_acc(logits, test_labels)
+    print("\n**** TFUP-T's inference accuracy: {:.2f}. ****\n".format(acc))
 
 
 def TFUP(cfg, cache_keys, cache_values, test_features, test_labels, clip_weights):
@@ -258,19 +281,21 @@ def main():
     clip_weights = get_clip_weights(cfg, clip_model, classnames)
 
     if cfg.DATASET.NAME == 'DomainNet':
-        refine_few_shots_without_label(classnames, clip_weights, train_features, train_labels, total_data, cache_shots)
+        refine_few_shots_without_label(classnames, clip_weights, train_features, train_labels, total_data, cache_shots,
+                                       cache_dir)
         refine_data = refine_few_shots_without_label(classnames, clip_weights, train_features, train_labels, total_data,
-                                                     training_shots, cache=False)
+                                                     training_shots, cache_dir, cache=False)
     else:
-        refine_few_shots_without_label(classnames, clip_weights, test_features, test_labels, total_data, cache_shots)
+        refine_few_shots_without_label(classnames, clip_weights, test_features, test_labels, total_data, cache_shots,
+                                       cache_dir)
         refine_data = refine_few_shots_without_label(classnames, clip_weights, test_features, test_labels, total_data,
-                                                     training_shots, cache=False)
+                                                     training_shots, cache_dir, cache=False)
 
     total_loader = build_dataloader(cfg, total_data, is_train=True)
     refine_loader = build_dataloader(cfg, refine_data, is_train=True)
 
-    cache_keys = torch.load('cache_dir/after_refine/keys.pt')
-    cache_values = torch.load('cache_dir/after_refine/values.pt')
+    cache_keys = torch.load(cache_dir+'/cache_keys.pt')
+    cache_values = torch.load(cache_dir+'/cache_values.pt')
     cache_values = cache_values.long()
     cache_values = F.one_hot(cache_values).half()
 
@@ -278,12 +303,16 @@ def main():
     TFUP(cfg, cache_keys, cache_values, test_features, test_labels, clip_weights)
 
     # ------------------------------------------ TFUP-T ------------------------------------------
-    if cfg.DATASET.NAME == 'DomainNet':
-        TFUP_T(cfg, cache_keys, cache_values, test_features, test_labels, clip_weights, clip_model, refine_loader,
-               total_loader, cache_dir, train_features)
-    else:
-        TFUP_T(cfg, cache_keys, cache_values, test_features, test_labels, clip_weights, clip_model, refine_loader,
-               total_loader, cache_dir)
+    if args.eval_only:
+        inference_TFUP_T(cfg, cache_keys, cache_values, test_features, test_labels, clip_weights, cache_dir)
+        return
+    if args.training:
+        if cfg.DATASET.NAME == 'DomainNet':
+            TFUP_T(cfg, cache_keys, cache_values, test_features, test_labels, clip_weights, clip_model, refine_loader,
+                   total_loader, cache_dir, train_features)
+        else:
+            TFUP_T(cfg, cache_keys, cache_values, test_features, test_labels, clip_weights, clip_model, refine_loader,
+                   total_loader, cache_dir)
 
 
 if __name__ == '__main__':

@@ -78,15 +78,16 @@ class Adapter(nn.Module):
         return x
 
 
-def refine_few_shots_without_label(classnames, text_features, cls_tokens, test_label, data, after_shots, cache=True):
+def refine_few_shots_without_label(classnames, text_features, cls_tokens, test_label, data, after_shots, cache_dir,
+                                   cache=True):
     class_num = len(classnames)
     cls_token = cls_tokens / cls_tokens.norm(dim=-1, keepdim=True)
     text_feature = text_features / text_features.norm(dim=-1, keepdim=True)
     if not cache:
         alpha = 0.3
         beta = 1
-        cache_keys = torch.load('cache_dir/after_refine/keys.pt')
-        cache_values = torch.load('cache_dir/after_refine/values.pt')
+        cache_keys = torch.load(cache_dir+'/cache_keys.pt')
+        cache_values = torch.load(cache_dir+'/cache_values.pt')
         cache_values = cache_values.long()
         cache_values = F.one_hot(cache_values).half()
         cache_keys = cache_keys / cache_keys.norm(dim=-1, keepdim=True)
@@ -156,8 +157,8 @@ def refine_few_shots_without_label(classnames, text_features, cls_tokens, test_l
         correct1 = (true_label == select_pseudo_label).sum()
         print("correct1 num:", correct1, "acc:", correct1 / (after_shots * class_num))
     if cache:
-        torch.save(cls_tokens_after, 'cache_dir/after_refine' + '/keys' + ".pt")
-        torch.save(label_after, 'cache_dir/after_refine' + '/values' + ".pt")
+        torch.save(cls_tokens_after, cache_dir+'/cache_keys.pt')
+        torch.save(label_after, cache_dir+'/cache_values.pt')
     return data_after
 
 
