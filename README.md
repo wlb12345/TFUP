@@ -74,5 +74,5 @@ python main.py --config configs/office_home.yaml --domain_name art
 If you want to run on other datasets, replace `office_home` with `office31`, `visda17` or `domainnet` and make changes to the `domain_name`. 
 
 # Acknowledgement
-We would like to thank the authors of  [APE]( https://github.com/yangyangyang127/APE), [Tip-Adapter](https://github.com/gaopengcuhk/Tip-Adapter) and [CoOp](https://github.com/KaiyangZhou/CoOp), based on which this codebase was built.
+We would like to thank the authors of [POUF]( https://github.com/korawat-tanwisuth/POUF), [APE]( https://github.com/yangyangyang127/APE), [Tip-Adapter](https://github.com/gaopengcuhk/Tip-Adapter) and [CoOp](https://github.com/KaiyangZhou/CoOp), based on which this codebase was built.
 
