@@ -7,9 +7,10 @@ $DATA/
 |–– office31/
 |–– office_home/
 |–– visda17/
+|–– domainnet/
 ```
 
-[Domain Adaptation](#domain-adaptation)
+[Datasets list:](#Datasets list)
 - [Office-31](#office-31)
 - [Office-Home](#office-home)
 - [VisDA17](#visda17)
