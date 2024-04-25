@@ -16,7 +16,7 @@ $DATA/
 - [VisDA17](#visda17)
 - [DomainNet](#domainnet)
 
-## Domain Adaptation
+## Datasets list
 
 ### Office-31
 
