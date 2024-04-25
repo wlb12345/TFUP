@@ -2,35 +2,12 @@
 
 > **Training-Free Unsupervised Prompt for Vision-Language Models**
 
-Prompt learning has become the most effective paradigm for adapt-
-ing large pre-trained vision-language models (VLMs) to down-
-stream tasks. Recently, unsupervised prompt tuning methods, such
-as UPL and POUF, directly leverage pseudo-labels as supervisory in-
-formation to fine-tune additional adaptation modules on unlabeled
-data. However, inaccurate pseudo-labels easily misguide the tun-
-ing process and result in poor representation capabilities. In light
-of this, we propose Training-Free Unsupervised Prompts (TFUP),
-which maximally preserves the inherent representation capabilities
-and enhances them with a residual connection to similarity-based
-prediction probabilities in a training-free and labeling-free man-
-ner. Specifically, we integrate both instance confidence and pro-
-totype scores to select representative samples, which are used to
-customize a reliable Feature Cache Model (FCM) for training-free
-inference. Then, we design a Multi-level Similarity Measure (MSM)
-that considers both feature-level and semantic-level similarities
-to calculate the distance between each test image and the cached
-sample as the weight of the corresponding cached label to generate
-similarity-based prediction probabilities. In this way, TFUP achieves
-surprising performance, even surpassing the training-base method
-on multiple classification datasets. Based on our TFUP, we propose
-a training-based approach (TFUP-T) to further boost the adaptation
-performance. In addition to the standard cross-entropy loss, TFUP-T
-adopts an additional marginal distribution entropy loss to constrain
-the model from a global perspective. Our TFUP-T achieves new
-state-of-the-art classification performance compared to unsuper-
-vised and few-shot adaptation approaches on multiple benchmarks.
-In particular, TFUP-T improves the classification accuracy of POUF
-by 3.3% on the most challenging Domain-Net dataset
+Prompt learning has become the most effective paradigm for adapting large pre-trained vision-language models (VLMs) to downstream tasks. Recently, unsupervised prompt tuning methods, such as UPL and POUF, directly leverage pseudo-labels as supervisory information to fine-tune additional adaptation modules on unlabeled data. However, inaccurate pseudo-labels easily misguide the tuning process and result in poor representation capabilities. In light of this, we propose Training-Free Unsupervised Prompts (TFUP), which maximally preserves the inherent representation capabilities and enhances them with a residual connection to similarity-based prediction probabilities in a training-free and labeling-free manner. Specifically, we integrate both instance confidence and prototype scores to select representative samples, which are used to customize a reliable Feature Cache Model (FCM) for training-free inference. Then, we design a Multi-level Similarity Measure (MSM)
+that considers both feature-level and semantic-level similarities to calculate the distance between each test image and the cached sample as the weight of the corresponding cached label to generate similarity-based prediction probabilities. In this way, TFUP achieves
+surprising performance, even surpassing the training-base method on multiple classification datasets. Based on our TFUP, we propose a training-based approach (TFUP-T) to further boost the adaptation
+performance. In addition to the standard cross-entropy loss, TFUP-T adopts an additional marginal distribution entropy loss to constrain
+the model from a global perspective. Our TFUP-T achieves new state-of-the-art classification performance compared to unsupervised and few-shot adaptation approaches on multiple benchmarks.
+In particular, TFUP-T improves the classification accuracy of POUF by 3.3% on the most challenging Domain-Net dataset.
 
 ![intro](imgs/TFUP.png)
 
