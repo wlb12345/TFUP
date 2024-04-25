@@ -10,15 +10,13 @@ $DATA/
 |–– domainnet/
 ```
 
-[Datasets list:](#Datasets list)
+Datasets list:
 - [Office-31](#office-31)
 - [Office-Home](#office-home)
 - [VisDA17](#visda17)
 - [DomainNet](#domainnet)
 
-## Datasets list
-
-### Office-31
+## Office-31
 
 Download link: https://people.eecs.berkeley.edu/~jhoffman/domainadapt/#datasets_code.
 
@@ -42,7 +40,7 @@ office31/
 
 Note that within each domain folder you need to move all class folders out of the `images/` folder and then delete the `images/` folder.
 
-### Office-Home
+## Office-Home
 
 Download link: http://hemanthdv.org/OfficeHome-Dataset/.
 
@@ -56,7 +54,7 @@ office_home/
 |–– real_world/
 ```
 
-### VisDA17
+## VisDA17
 
 Download link: http://ai.bu.edu/visda-2017/.
 
@@ -69,7 +67,7 @@ visda17/
 |–– validation/
 ```
 
-### DomainNet
+## DomainNet
 
 Download link: http://ai.bu.edu/M3SDA/. (Please download the cleaned version of split files)
 
